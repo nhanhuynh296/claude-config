@@ -1,11 +1,18 @@
 {
   "name": "claude-config",
-  "owner": { "name": "nhanhuynh296" },
+  "owner": {
+    "name": "nhanhuynh296"
+  },
   "plugins": [
     {
       "name": "usage-row",
       "source": "./mods/usage-row",
       "description": "One monospace row above the prompt: a context ring with tokens of the window, 5-hour limit and its reset, running background tasks on the right, plus a prompt-cache countdown under the last reply"
+    },
+    {
+      "name": "nathan",
+      "source": "./mods/nathan",
+      "description": "Nathan's personal skills: timesheet, write-to-client, asd-ste100, backlog-grooming, implement-parallel"
     }
   ]
 }
