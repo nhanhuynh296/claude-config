@@ -7,7 +7,7 @@ Personal Claude Code setup: a plugin marketplace (`claude-config`) with a UI mod
 | Path | What |
 |---|---|
 | `mods/usage-row` | Plugin `usage-row`: usage row above the prompt |
-| `mods/nathan` | Plugin `nathan`: personal skills (`nathan:timesheet`, `nathan:write-to-client`, `nathan:asd-ste100`, `nathan:backlog-grooming`, `nathan:implement-parallel`) |
+| `mods/nathan` | Plugin `nathan`: personal skills (`nathan:timesheet`, `nathan:write-to-client`, `nathan:backlog-grooming`, `nathan:implement-parallel`) |
 | `dotfiles/` | A copy of `settings.json`. `CLAUDE.md` is not stored here (public repo) |
 | `scripts/` | `install.sh` and `sync-settings.sh` for the dotfiles |
 
@@ -25,7 +25,7 @@ Under the main thread's last reply it adds a dim monospace line, `cache 38:12`: 
 
 ### mods/nathan
 
-Skills that were in `~/.claude/skills`. `asd-ste100` is a copy of [danyuchn/asd-ste100-skill](https://github.com/danyuchn/asd-ste100-skill) (MIT, see its LICENSE). Skills find their own files through `${CLAUDE_SKILL_DIR}`.
+Skills that were in `~/.claude/skills`. Skills find their own files through `${CLAUDE_SKILL_DIR}`.
 
 ### dotfiles and scripts
 
