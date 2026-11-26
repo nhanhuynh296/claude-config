@@ -6,7 +6,6 @@ __pycache__/
 *.bak*
 # dotfiles: track only these; never memory, projects, plugin cache, credentials or sessions
 dotfiles/*
-!dotfiles/CLAUDE.md
 !dotfiles/settings.json
 .credentials.json
 settings.local.json

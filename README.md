@@ -1,6 +1,6 @@
 # claude-config
 
-Personal Claude Code setup: a plugin marketplace (`claude-config`) with a UI mod and personal skills, plus the dotfiles for `~/.claude`.
+Personal Claude Code setup: a plugin marketplace (`claude-config`) with a UI mod and personal skills, plus a copy of `~/.claude/settings.json`.
 
 ## Contents
 
@@ -8,7 +8,7 @@ Personal Claude Code setup: a plugin marketplace (`claude-config`) with a UI mod
 |---|---|
 | `mods/usage-row` | Plugin `usage-row`: usage row above the prompt |
 | `mods/nathan` | Plugin `nathan`: personal skills (`nathan:timesheet`, `nathan:write-to-client`, `nathan:asd-ste100`, `nathan:backlog-grooming`, `nathan:implement-parallel`) |
-| `dotfiles/` | `CLAUDE.md` (global instructions) and a copy of `settings.json` |
+| `dotfiles/` | A copy of `settings.json`. `CLAUDE.md` is not stored here (public repo) |
 | `scripts/` | `install.sh` and `sync-settings.sh` for the dotfiles |
 
 ### mods/usage-row
@@ -29,10 +29,10 @@ Skills that were in `~/.claude/skills`. `asd-ste100` is a copy of [danyuchn/asd-
 
 ### dotfiles and scripts
 
-- `scripts/install.sh`: links `~/.claude/CLAUDE.md` to `dotfiles/CLAUDE.md` (moves an existing file to `CLAUDE.md.bak-<date>`). Copies `dotfiles/settings.json` to `~/.claude/settings.json` only when that file does not exist.
+- `scripts/install.sh`: copies `dotfiles/settings.json` to `~/.claude/settings.json` only when that file does not exist.
 - `scripts/sync-settings.sh`: copies the live `~/.claude/settings.json` into `dotfiles/settings.json`. Run it, check the diff, then commit.
 
-`settings.json` is a copy, not a link, because Claude Code rewrites the file. The `CLAUDE.md` link points into this clone, so do not move or rename the clone folder. Never commit memory, `projects/`, the plugin cache, credentials or session data.
+`settings.json` is a copy, not a link, because Claude Code rewrites the file. Never commit memory, `projects/`, the plugin cache, credentials or session data.
 
 ## Install
 
