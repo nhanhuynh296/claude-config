@@ -1,10 +1,17 @@
-# claude-mods
+# claude-config
 
-Personal Claude Code mods, published as a plugin marketplace.
+Personal Claude Code setup: a plugin marketplace (`claude-config`) with a UI mod and personal skills, plus the dotfiles for `~/.claude`.
 
-## Mods
+## Contents
 
-### usage-row
+| Path | What |
+|---|---|
+| `mods/usage-row` | Plugin `usage-row`: usage row above the prompt |
+| `mods/nathan` | Plugin `nathan`: personal skills (`nathan:timesheet`, `nathan:write-to-client`, `nathan:asd-ste100`, `nathan:backlog-grooming`, `nathan:implement-parallel`) |
+| `dotfiles/` | `CLAUDE.md` (global instructions) and a copy of `settings.json` |
+| `scripts/` | `install.sh` and `sync-settings.sh` for the dotfiles |
+
+### mods/usage-row
 
 One row above the prompt, in monospace with fixed-width numbers so nothing shifts as values count down.
 
@@ -16,32 +23,40 @@ When a tip shows above it (Claude Code's built-in tips), the tip and the row dra
 
 Under the main thread's last reply it adds a dim monospace line, `cache 38:12`: the prompt cache's countdown (`· expiring` under 5 minutes, `cold` once expired). It follows a rewind to the reply that is then last.
 
+### mods/nathan
+
+Skills that were in `~/.claude/skills`. `asd-ste100` is a copy of [danyuchn/asd-ste100-skill](https://github.com/danyuchn/asd-ste100-skill) (MIT, see its LICENSE). Skills find their own files through `${CLAUDE_SKILL_DIR}`.
+
+### dotfiles and scripts
+
+- `scripts/install.sh`: links `~/.claude/CLAUDE.md` to `dotfiles/CLAUDE.md` (moves an existing file to `CLAUDE.md.bak-<date>`). Copies `dotfiles/settings.json` to `~/.claude/settings.json` only when that file does not exist.
+- `scripts/sync-settings.sh`: copies the live `~/.claude/settings.json` into `dotfiles/settings.json`. Run it, check the diff, then commit.
+
+`settings.json` is a copy, not a link, because Claude Code rewrites the file. The `CLAUDE.md` link points into this clone, so do not move or rename the clone folder. Never commit memory, `projects/`, the plugin cache, credentials or session data.
+
 ## Install
-
-At the prompt of a terminal session:
-
-```
-/plugin install usage-row --marketplace nhanhuynh296/claude-mods
-```
 
 From a shell:
 
 ```bash
-claude plugin install usage-row --marketplace nhanhuynh296/claude-mods
+claude plugin marketplace add nhanhuynh296/claude-config
+claude plugin install usage-row@claude-config
+claude plugin install nathan@claude-config
+./scripts/install.sh
 ```
 
-In the desktop app, where `/plugin` does not run: click + next to the prompt box, then Plugins, Add marketplace with `nhanhuynh296/claude-mods`, then Add plugin.
+At the prompt of a terminal session: `/plugin marketplace add nhanhuynh296/claude-config`, then `/plugin install nathan@claude-config`.
+
+In the desktop app, where `/plugin` does not run: click + next to the prompt box, then Plugins, Add marketplace with `nhanhuynh296/claude-config`, then Add plugin.
 
 This repository is private. Installing needs read access on GitHub and a git credential for github.com on the machine (an SSH key, or `gh auth login` then `gh auth setup-git`).
 
 ## Develop
 
 ```bash
-claude plugin validate mods/usage-row
-```
-
-```bash
+claude plugin validate .
+claude plugin validate mods/nathan
 claude plugin test mods/usage-row
 ```
 
-Bump `version` in the mod's `.claude-plugin/plugin.json` before pushing, then `claude plugin update usage-row@claude-mods` and `/reload-plugins`.
+Bump `version` in the plugin's `.claude-plugin/plugin.json` before pushing, then `claude plugin marketplace update claude-config`, `claude plugin update <plugin>@claude-config` and `/reload-plugins`.
