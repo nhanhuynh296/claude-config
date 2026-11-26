@@ -1,0 +1,41 @@
+{
+  "env": {
+    "CLAUDE_CODE_SHELL": "/usr/bin/bash"
+  },
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  },
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "model": "opus",
+  "enabledPlugins": {
+    "cc-plugin-you-should-know@builtin": true,
+    "mattpocock-skills@claude-plugins-official": true,
+    "usage-row@claude-config": true,
+    "nathan@claude-config": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-config": {
+      "source": {
+        "source": "github",
+        "repo": "nhanhuynh296/claude-config"
+      }
+    }
+  },
+  "outputStyle": "Concise",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
+    }
+  },
+  "advisorModel": "fable",
+  "pluginConfigs": {},
+  "skipWorkflowUsageWarning": true,
+  "theme": "auto",
+  "remoteControlAtStartup": true,
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true
+}
