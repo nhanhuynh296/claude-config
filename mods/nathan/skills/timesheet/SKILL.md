@@ -13,7 +13,7 @@ Run:
 python3 "${CLAUDE_SKILL_DIR}/session_times.py" ${CLAUDE_SESSION_ID}
 ```
 
-If `${CLAUDE_SKILL_DIR}` shows unexpanded, use the path after "Base directory for this skill:".
+If the command shows a literal `CLAUDE_SKILL_DIR` variable, use the path after "Base directory for this skill:".
 
 Gives `started`, `session_duration`, `focused_time`, plus a work inventory (`files_edited`, `tool_calls`, `prompts`).
 
